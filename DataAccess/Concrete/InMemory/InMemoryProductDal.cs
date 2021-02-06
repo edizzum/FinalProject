@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,11 +36,6 @@ namespace DataAccess.Concrete.InMemory
             _products.Remove(productToDelete);
         }
 
-        public List<Product> GetAll()
-        {
-            return _products;
-        }
-
         public void Update(Product product)
         {
             //Gönderdiğim ürün Id'sine sahip olan listedeki ürünü bul
@@ -56,10 +52,15 @@ namespace DataAccess.Concrete.InMemory
 
         public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            return _products;
         }
 
         public Product Get(Expression<Func<Product, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<ProductDetailDto> GetProductDetails()
         {
             throw new NotImplementedException();
         }
